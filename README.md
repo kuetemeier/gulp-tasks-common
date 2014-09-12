@@ -61,7 +61,7 @@ Options:
 
 ```
 
-A complete list of JSHint Options can be found at http://www.jshint.com/docs/options/
+A complete list of JSHint options can be found at http://www.jshint.com/docs/options/
 
 For an example `.jshintrc` see my [Gist](https://gist.github.com/jkuetemeier/a2a1072e10873717c507)
 
