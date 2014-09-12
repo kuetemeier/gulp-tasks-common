@@ -34,6 +34,39 @@ common.gulp_common(gulp);
 gulp.task('default', ['jshint']);
 ```
 
+## Integrated Tasks:
+
+### JSHint
+
+Name: `jshint`
+Used module: [gulp-jshint](https://github.com/spenceralger/gulp-jshint)
+Options:
+
+```
+  # array of sourcefiles to be jshint'ed
+  src : [
+    "**/*.js",
+    "!test/tool/**/*",
+    "!node_modules/**/*"
+  ]
+
+  # use a verbose reporter
+  verbose : true
+
+  # should the build fail if jshint finds a validation violation
+  fail: true
+
+  # optional path to a jshintrc file, default behavior: lookup
+  jshintrc_path: undefined
+
+```
+
+A complete list of JSHint Options can be found at
+http://www.jshint.com/docs/options/
+
+For an example `.jshintrc` see my [Gist]
+(https://gist.github.com/jkuetemeier/a2a1072e10873717c507)
+
 ## Testing
 
     npm test
