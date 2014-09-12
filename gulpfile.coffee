@@ -6,6 +6,11 @@ istanbul = require 'gulp-istanbul'
 mocha = require 'gulp-mocha'
 del = require 'del'
 
+###
+ use old style tasks for this, to ensure we can compile the tasks
+ chicken egg problem ;-)
+###
+
 gulp.task 'clean', (cb) ->
   del(['./lib/**'], cb)
 

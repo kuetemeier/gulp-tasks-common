@@ -1,8 +1,15 @@
-module.exports = (gulp, config) ->
+jshint = require 'gulp-jshint'
+config = require '../config/jshint'
+_ = require 'lodash'
 
-  gulp.task("jshint", () ->
-    gulp.src(["**/*.js","!.cortex","!test/tool/**/*","!node_modules/**/*"])
-    .pipe(jshint(jshintrc_path))
-    .pipe(jshint.reporter('default'))
-    .pipe(jshint.reporter('fail'))
-  )
+module.exports = (gulp, _config) ->
+  config = _.extend config, _config
+
+  res = gulp.src(config.src)
+  .pipe(jshint(config.jshintrc_path))
+  .pipe(jshint.reporter('default', { verbose: config.verbose }))
+
+  if config.fail
+    res.pipe(jshint.reporter('fail'))
+
+  return res

@@ -8,13 +8,10 @@ chai.use require 'sinon-chai'
 
 gulp = require 'gulp'
 # using compiled JavaScript file here to be sure module works
-common = require('..')(gulp, {})
+common = require('..')
 
 describe 'gulp-tasks-common', ->
   it 'works', ->
 
-    console.log('work:')
-
-    console.log(common)
 #    actual = common 'World'
 #    expect(actual).to.eql 'Hello World'

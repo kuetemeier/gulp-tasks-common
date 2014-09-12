@@ -1,12 +1,14 @@
-require_dir = require 'requiredir'
-_ = require 'lodash'
+###
+ * https://github.com/jkuetemeier/gulp-tasks-common
+ *
+ * Copyright (c) 2014 Jörg Kütemeier
+ * Licensed under the MIT license.
+###
 
-module.exports = (gulp, _config) ->
+# load tasks from `tasks` dir
+common = require('requiredir')('tasks')
 
-  __config = _config || {}
+# prepare common gulp tasks
+common.gulp_common = require('./gulp_common')(common)
 
-  {
-    config : _.merge(__config, require_dir('config'))
-
-    jshint : require('./tasks/jshint')(gulp, __config)
-  }
+module.exports = common
