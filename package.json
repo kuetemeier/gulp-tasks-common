@@ -1,13 +1,16 @@
 {
   "name": "gulp-tasks-common",
-  "version": "0.0.1",
-  "description": "Awesome module",
-  "keywords": [],
+  "version": "0.0.2",
+  "description": "Common modules for Java-Script development with Gulp",
+  "keywords": [
+    "gulp",
+    "jshint"
+  ],
   "homepage": "https://github.com/jkuetemeier/gulp-tasks-common",
   "bugs": "https://github.com/jkuetemeier/gulp-tasks-common/issues",
   "author": {
     "name": "Jörg Kütemeier",
-    "email": "",
+    "email": "jkuetemeier@jkuetemeier.com",
     "url": "https://github.com/jkuetemeier"
   },
   "main": "./lib/gulp-tasks-common.js",
