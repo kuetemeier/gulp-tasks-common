@@ -12,6 +12,28 @@
 
 ## Usage Example
 
+Install [gulp.js](https://github.com/gulpjs/gulp) and [gulp-tasks-common](https://github.com/jkuetemeier/gulp-tasks-common):
+
+```
+npm install --save-dev gulp
+npm install --save-dev gulp-tasks-common
+```
+
+Create a `gulpfile.js`
+
+```
+// load gulp
+var gulp = require('gulp');
+
+// load common task
+var common = require('gulp-tasks-common');
+
+// register task
+common.gulp_common(gulp);
+
+gulp.task('default', ['jshint']);
+```
+
 ## Testing
 
     npm test
