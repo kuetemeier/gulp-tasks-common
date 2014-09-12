@@ -4,6 +4,10 @@ gutil = require 'gulp-util'
 coffee = require 'gulp-coffee'
 istanbul = require 'gulp-istanbul'
 mocha = require 'gulp-mocha'
+del = require 'del'
+
+gulp.task 'clean', (cb) ->
+  del(['./lib/**'], cb)
 
 gulp.task 'coffee', ->
   gulp.src './src/**/*.coffee'
