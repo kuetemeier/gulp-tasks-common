@@ -1,4 +1,7 @@
 module.exports = {
+
+  enabled: true
+
   # array of sourcefiles to be jshint'ed
   src : [
     "**/*.js",            # jshint all js files in all subdirectories
