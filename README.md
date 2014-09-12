@@ -43,7 +43,7 @@ Used module: [gulp-jshint](https://github.com/spenceralger/gulp-jshint)
 Options:
 
 ```
-  # array of sourcefiles to be jshint'ed
+  # array of sourcefiles to be jshinted
   src : [
     "**/*.js",
     "!test/tool/**/*",
@@ -61,11 +61,9 @@ Options:
 
 ```
 
-A complete list of JSHint Options can be found at
-http://www.jshint.com/docs/options/
+A complete list of JSHint Options can be found at http://www.jshint.com/docs/options/
 
-For an example `.jshintrc` see my [Gist]
-(https://gist.github.com/jkuetemeier/a2a1072e10873717c507)
+For an example `.jshintrc` see my [Gist](https://gist.github.com/jkuetemeier/a2a1072e10873717c507)
 
 ## Testing
 
