@@ -8,20 +8,22 @@
 
 ## Installation
 
-    npm install gulp-tasks-common
+```zsh
+npm install gulp-tasks-common
+```
 
 ## Usage Example
 
 Install [gulp.js](https://github.com/gulpjs/gulp) and [gulp-tasks-common](https://github.com/jkuetemeier/gulp-tasks-common):
 
-```
+```zsh
 npm install --save-dev gulp
 npm install --save-dev gulp-tasks-common
 ```
 
 Create a `gulpfile.js`
 
-```
+```javascript
 // load gulp
 var gulp = require('gulp');
 
@@ -42,12 +44,12 @@ Name: `jshint`
 Used module: [gulp-jshint](https://github.com/spenceralger/gulp-jshint)
 Options:
 
-```
+```coffee
   # array of sourcefiles to be jshinted
   src : [
-    "**/*.js",
-    "!test/tool/**/*",
-    "!node_modules/**/*"
+    "**/*.js",            # jshint all js files in all subdirectories
+    "!test/tool/**/*",    # but not under /test/tool/
+    "!node_modules/**/*"  # und not under /node_modules
   ]
 
   # use a verbose reporter
@@ -67,7 +69,9 @@ For an example `.jshintrc` see my [Gist](https://gist.github.com/jkuetemeier/a2a
 
 ## Testing
 
-    npm test
+```zsh
+npm test
+```
 
 ## License
 
