@@ -14,17 +14,23 @@ del = require 'del'
 gulp.task 'clean', (cb) ->
   del(['./lib/**'], cb)
 
-gulp.task 'coffee', ->
+gulp.task 'coffee', ['clean'], ->
   gulp.src './src/**/*.coffee'
     .pipe coffee({bare: true}).on('error', gutil.log)
     .pipe gulp.dest './lib/'
 
 gulp.task 'test', ['coffee'], ->
   gulp.src ['lib/**/*.js']
+    .on 'finish', ->
+      gulp.src(['test/**/*.spec.coffee','test/**/*.test.coffee'])
+        .pipe mocha reporter: 'progress', compilers: 'coffee:coffee-script/register'
+
+gulp.task 'covered', ['coffee'], ->
+  gulp.src ['lib/**/*.js']
     .pipe(istanbul()) # Covering files
     .on 'finish', ->
-      gulp.src(['test/**/*.spec.coffee'])
+      gulp.src(['test/**/*.spec.coffee','test/**/*.test.coffee'])
         .pipe mocha reporter: 'spec', compilers: 'coffee:coffee-script/register'
         .pipe istanbul.writeReports() # Creating the reports after tests run
 
-gulp.task 'default', ['coffee']
+gulp.task 'default', ['clean', 'coffee']
