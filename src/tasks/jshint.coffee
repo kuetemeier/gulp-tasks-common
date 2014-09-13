@@ -1,3 +1,10 @@
+###
+ * https://github.com/jkuetemeier/gulp-tasks-common
+ *
+ * Copyright (c) 2014 Jörg Kütemeier
+ * Licensed under the MIT license.
+###
+
 jshint = require 'gulp-jshint'
 config = require '../config/jshint'
 _ = require 'lodash'

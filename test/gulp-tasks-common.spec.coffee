@@ -1,3 +1,10 @@
+###
+ * https://github.com/jkuetemeier/gulp-tasks-common
+ *
+ * Copyright (c) 2014 Jörg Kütemeier
+ * Licensed under the MIT license.
+###
+
 require 'coffee-errors'
 
 chai = require 'chai'
