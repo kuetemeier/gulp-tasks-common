@@ -5,9 +5,10 @@
  * Licensed under the MIT license.
 ###
 
+_ = require 'lodash'
+
 module.exports = (common) ->
   (gulp, config) ->
     config = config || {}
+    config = _.extend config, common.config
 
-    gulp.task 'jshint', (cb) ->
-      common.jshint(gulp)

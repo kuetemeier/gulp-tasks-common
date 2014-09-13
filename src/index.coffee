@@ -5,10 +5,17 @@
  * Licensed under the MIT license.
 ###
 
-# load tasks from `tasks` dir
-common = require('requiredir')('tasks')
+common = {
+
+  # load tasks from `tasks` dir
+  tasks : require('requiredir')('tasks')
+
+  # load config from 'config' dir
+  config : require('requiredir')('config')
+
+}
 
 # prepare common gulp tasks
-common.gulp_common = require('./gulp_common')(common)
+gulp_common : require('./gulp_common')(common)
 
 module.exports = common
