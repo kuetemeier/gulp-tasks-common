@@ -23,14 +23,20 @@ gulp.task 'test', ['coffee'], ->
   gulp.src ['lib/**/*.js']
     .on 'finish', ->
       gulp.src(['test/**/*.spec.coffee','test/**/*.test.coffee'])
-        .pipe mocha reporter: 'progress', compilers: 'coffee:coffee-script/register'
+        .pipe mocha {
+          reporter: 'spec',
+          compilers: 'coffee:coffee-script/register'
+        }
 
 gulp.task 'covered', ['coffee'], ->
   gulp.src ['lib/**/*.js']
     .pipe(istanbul()) # Covering files
     .on 'finish', ->
       gulp.src(['test/**/*.spec.coffee','test/**/*.test.coffee'])
-        .pipe mocha reporter: 'spec', compilers: 'coffee:coffee-script/register'
+        .pipe mocha {
+          reporter: 'dot',
+          compilers: 'coffee:coffee-script/register'
+        }
         .pipe istanbul.writeReports() # Creating the reports after tests run
 
 gulp.task 'default', ['clean', 'coffee']
