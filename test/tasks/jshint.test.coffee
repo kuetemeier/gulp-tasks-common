@@ -5,33 +5,30 @@
  * Licensed under the MIT license.
 ###
 
-# patch error stack to display correct line numbers for CoffeeScript
 require 'coffee-errors'
 
-# set up test stack
 chai = require 'chai'
 sinon = require 'sinon'
 
 expect = chai.expect
 chai.use require 'sinon-chai'
 
+gulp = require 'gulp'
 
 # using compiled JavaScript file here to be sure module works
-common = require('..')
+common = require('../..')
 
-before ->
-  gulp = require 'gulp'
+describe.skip 'tasks - jshint', ->
+  it 'is defined', ->
+    expect(common.tasks).to.be.defined
+    expect(common.tasks.jshint).to.be.defined
 
+  it 'has a config', ->
+    expect(common.config).to.be.defined
+    expect(common.config.jshint).to.be.defined
 
-describe 'gulp-tasks-common', ->
-
-  before ->
-    console.log("before describe")
-
-  after ->
-    console.log('after describe')
-
-  it 'works', ->
+  it 'is enabeld by default', ->
+    expect(common.config.jshint.enabeld).to.be.true
 
 #    actual = common 'World'
 #    expect(actual).to.eql 'Hello World'
