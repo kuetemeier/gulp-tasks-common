@@ -83,3 +83,6 @@ bower_components
 
 # Coverage - your repo token should not be public
 .coveralls.yml
+
+# Cloud 9 Projects
+.c9/
