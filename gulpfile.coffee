@@ -17,13 +17,14 @@ gulp.task 'clean', (cb) ->
 
 gulp.task 'coffee', ['clean'], ->
   # copy coffee script source files for debug
-  gulp.src './src/**/*.coffee'
-  .pipe(gulp.dest('./lib/'))
+#  gulp.src './src/**/*.coffee'
+#  .pipe(gulp.dest('./lib/'))
 
   gulp.src './src/**/*.coffee'
-    .pipe(sourcemaps.init())
-    .pipe coffee({bare: true, sourceMap: true}).on('error', gutil.log)
-    .pipe sourcemaps.write('./lib')
+#    .pipe(sourcemaps.init())
+#    .pipe coffee({bare: true , sourceMap: true}).on('error', gutil.log)
+    .pipe coffee({bare: false}).on('error', gutil.log)
+#    .pipe sourcemaps.write('.', { includeContent: false, sourceRoot: '/src' })
     .pipe gulp.dest './lib/'
 
 gulp.task 'test', ['coffee'], ->
