@@ -46,6 +46,10 @@ gulp.task 'covered', ['coffee'], ->
           reporter: 'dot',
           compilers: 'coffee:coffee-script/register'
         }
-        .pipe istanbul.writeReports() # Creating the reports after tests run
+        .pipe istanbul.writeReports({
+          dir: './coverage',
+          reporters: [ 'lcov', 'json', 'text', 'text-summary', 'html' ],
+          reportOpts: { dir: './coverage' },
+        }) # Creating the reports after tests run
 
 gulp.task 'default', ['clean', 'coffee']
