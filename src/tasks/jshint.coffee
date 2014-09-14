@@ -6,17 +6,36 @@
 ###
 
 jshint = require 'gulp-jshint'
-config = require '../config/jshint'
+config = require '../config'
 _ = require 'lodash'
 
-module.exports = (gulp, _config) ->
-  config = _.extend config, _config
+module.exports = (common) ->
 
-  res = gulp.src(config.src)
-  .pipe(jshint(config.jshintrc_path))
-  .pipe(jshint.reporter('default', { verbose: config.verbose }))
+  fn = (gulp, fnConfig) ->
+    return true
+    fnConfig ?= { }
+    fnConfig = _.default fnConfig, config.jshint
+    res = null
 
-  if config.fail
-    res.pipe(jshint.reporter('fail'))
+    if fnConfig.enabled
+      res = gulp.src(fnConfig.src)
+      .pipe(jshint(fnConfig.jshintrc_path))
+      .pipe(jshint.reporter('default', { verbose: fnConfig.verbose }))
 
-  return res
+      if fnConfig.fail
+        res.pipe(jshint.reporter('fail'))
+
+    return res
+
+  task = (gulp, taskConfig) ->
+    taskConfig ?= { }
+    _.defaults taskConfig, config.jshint
+
+    if taskConfig.enabled
+      gulp.task 'jshint', ->
+        common.tasks.jshint.fn gulp, taskConfig
+
+  {
+    fn : fn
+    task : task
+  }

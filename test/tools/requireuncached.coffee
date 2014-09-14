@@ -5,9 +5,6 @@
  * Licensed under the MIT license.
 ###
 
-module.exports = (common) ->
-  (gulp, config) ->
-    config = config || {}
-
-    gulp.task 'jshint', (cb) ->
-      common.jshint(gulp)
+module.exports = (module) ->
+  delete require.cache[require.resolve(module)]
+  return require module

@@ -5,8 +5,10 @@
  * Licensed under the MIT license.
 ###
 
+# patch error stack to display correct line numbers for CoffeeScript
 require 'coffee-errors'
 
+# set up test stack
 chai = require 'chai'
 sinon = require 'sinon'
 
@@ -17,8 +19,16 @@ gulp = require 'gulp'
 # using compiled JavaScript file here to be sure module works
 common = require('..')
 
-describe 'gulp-tasks-common', ->
-  it 'works', ->
 
-#    actual = common 'World'
-#    expect(actual).to.eql 'Hello World'
+describe 'gulp-tasks-common', ->
+
+  it 'has a tasks object', ->
+    expect(common.tasks).to.be.an('object')
+
+  it 'has a config object', ->
+    expect(common.config).to.be.an('object')
+
+  it 'has a method to register gulp tasks', ->
+    expect(common.register_tasks).to.be.a('function')
+
+

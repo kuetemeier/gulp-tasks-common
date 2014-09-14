@@ -5,6 +5,7 @@
  * Licensed under the MIT license.
 ###
 
-module.exports = {
-  global: 'global'
-}
+# KEEP THIS FILE!
+# as a cached config for tasks
+
+module.exports = require('requiredir')('config')

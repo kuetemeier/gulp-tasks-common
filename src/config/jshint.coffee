@@ -8,6 +8,7 @@
 
 module.exports = {
 
+  # this module is enabled by default
   enabled: true
 
   # array of sourcefiles to be jshint'ed
