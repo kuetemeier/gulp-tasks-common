@@ -5,6 +5,7 @@ coffee = require 'gulp-coffee'
 istanbul = require 'gulp-istanbul'
 mocha = require 'gulp-mocha'
 del = require 'del'
+sourcemaps = require 'gulp-sourcemaps'
 
 ###
  use old style tasks for this, to ensure we can compile the tasks
@@ -15,11 +16,18 @@ gulp.task 'clean', (cb) ->
   del(['./lib/**'], cb)
 
 gulp.task 'coffee', ['clean'], ->
+  # copy coffee script source files for debug
   gulp.src './src/**/*.coffee'
-    .pipe coffee({bare: true}).on('error', gutil.log)
+  .pipe(gulp.dest('./lib/'))
+
+  gulp.src './src/**/*.coffee'
+    .pipe(sourcemaps.init())
+    .pipe coffee({bare: true, sourceMap: true}).on('error', gutil.log)
+    .pipe sourcemaps.write('./lib')
     .pipe gulp.dest './lib/'
 
 gulp.task 'test', ['coffee'], ->
+
   gulp.src ['lib/**/*.js']
     .on 'finish', ->
       gulp.src(['test/**/*.spec.coffee','test/**/*.test.coffee'])

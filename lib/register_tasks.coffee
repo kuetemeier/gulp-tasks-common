@@ -10,5 +10,8 @@ _ = require 'lodash'
 module.exports = (common) ->
   (gulp, config) ->
     config = config || {}
-    config = _.extend config, common.config
+    _.defaults config, common.config
 
+    _.forIn common.tasks, (value, key) ->
+      if common.tasks[key].tasks
+        common.tasks[key].tasks gulp, config[key]
