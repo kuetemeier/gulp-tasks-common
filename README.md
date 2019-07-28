@@ -1,3 +1,7 @@
+## Archived
+
+This code is archived and stays here for you personal reference. Visit me on https://wolfszwinkern.com for fresh tips.
+
 # gulp-tasks-common
 
 [![Dependency status](http://img.shields.io/david/jkuetemeier/gulp-tasks-common.svg?style=flat)](https://david-dm.org/jkuetemeier/gulp-tasks-common)
